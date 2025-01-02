@@ -41,7 +41,7 @@ export const SocialIcons: React.FC<{ links: string[], iconSize?: number }> = ({ 
     };
 
     return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-1">
             {links.map((link, index) => {
                 const platformName = getPlatformName(link);
                 const size = platformName && platformName in iconSizeScale ? iconSize * iconSizeScale[platformName] : iconSize;
