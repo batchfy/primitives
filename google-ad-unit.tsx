@@ -1,6 +1,8 @@
 'use client'
 import React, { Fragment, ReactNode, useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
+
 
 type Props = {
   slot: string
@@ -13,7 +15,7 @@ declare global {
   }
 }
 
-export const GoogleAdUnit = ({ slot, client }: Props) => {
+const GoogleAd = ({ slot, client }: Props) => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   useEffect(() => {
@@ -26,11 +28,15 @@ export const GoogleAdUnit = ({ slot, client }: Props) => {
   return <Fragment>
     <ins className="adsbygoogle"
      style={{ display: "block" }}
-     data-ad-client={{ client }}
-     data-ad-slot={{ slot }}
+     data-ad-client={client}
+     data-ad-slot={slot}
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
   </Fragment>
+}
+
+export const GoogleAdUnit = ({ slot, client }: Props) => {
+    return <Suspense><GoogleAd slot={slot} client={client} /></Suspense>
 }
 
 
