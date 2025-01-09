@@ -6,9 +6,10 @@ interface FooterProps {
     name: string,
     title: string,
     domain: string
+    iconSize?: number
 }
 
-export const Footer: React.FC<FooterProps> = ({ socials, name, title, domain }) => {
+export const Footer: React.FC<FooterProps> = ({ socials, name, title, domain, iconSize=23 }) => {
     const year = new Date().getFullYear();
     return(
         <footer className="w-full flex flex-col items-center justify-center space-x-4 py-3">
@@ -22,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ socials, name, title, domain }) 
                 >
                     <span className="text-primary text-sm">{name}</span>
                 </Link>
-                <SocialIcons links={socials} iconSize={23} />
+                <SocialIcons links={socials} iconSize={iconSize} />
             </div>
         </footer>
     )
