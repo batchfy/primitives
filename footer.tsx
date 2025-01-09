@@ -4,12 +4,12 @@ import { Link } from "@nextui-org/link"
 interface FooterProps {
     socials: string[],
     name: string,
-    title: string,
+    title?: string,
     domain: string
     iconSize?: number
 }
 
-export const Footer: React.FC<FooterProps> = ({ socials, name, title, domain, iconSize=23 }) => {
+export const Footer: React.FC<FooterProps> = ({ socials, name, title="", domain, iconSize=23 }) => {
     const year = new Date().getFullYear();
     return(
         <footer className="w-full flex flex-col items-center justify-center space-x-4 py-3">
