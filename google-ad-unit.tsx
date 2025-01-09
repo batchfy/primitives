@@ -1,7 +1,8 @@
 'use client'
-import React, { Fragment, ReactNode, useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
+import Script from 'next/script'
 
 
 type Props = {
@@ -26,12 +27,19 @@ const GoogleAd = ({ slot, client }: Props) => {
     }
   }, [pathname, searchParams])
   return <Fragment>
+    <Script
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`}
+      strategy="lazyOnload"
+      crossOrigin="anonymous"
+    />
     <ins className="adsbygoogle"
-     style={{ display: "block" }}
-     data-ad-client={client}
-     data-ad-slot={slot}
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+      style={{ display: "block" }}
+      data-ad-client={client}
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true">
+    </ins>
   </Fragment>
 }
 
