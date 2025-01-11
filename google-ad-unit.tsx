@@ -8,6 +8,7 @@ import Script from 'next/script'
 type Props = {
   slot: string
   client: string
+  format?: "square" | "horizontal" | "vertical" | "auto"
 }
 
 declare global {
@@ -16,7 +17,7 @@ declare global {
   }
 }
 
-const GoogleAd = ({ slot, client }: Props) => {
+const GoogleAd = ({ slot, client, format="auto" }: Props) => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   useEffect(() => {
@@ -37,14 +38,14 @@ const GoogleAd = ({ slot, client }: Props) => {
       style={{ display: "block" }}
       data-ad-client={client}
       data-ad-slot={slot}
-      data-ad-format="auto"
+      data-ad-format={format}
       data-full-width-responsive="true">
     </ins>
   </Fragment>
 }
 
-export const GoogleAdUnit = ({ slot, client }: Props) => {
-    return <Suspense><GoogleAd slot={slot} client={client} /></Suspense>
+export const GoogleAdUnit = ({ slot, client, format }: Props) => {
+    return <Suspense><GoogleAd slot={slot} client={client} format={format} /></Suspense>
 }
 
 
