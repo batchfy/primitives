@@ -1,5 +1,5 @@
 import { SocialIcons } from "./icons";
-import { Link } from "@nextui-org/link"
+import { Link } from "./link"
 
 interface FooterProps {
     socials: string[],

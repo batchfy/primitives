@@ -1,5 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
-import { Link, LinkProps } from "@nextui-org/link";
+import { LinkProps } from "@nextui-org/link";
+import { Link } from "./link";
 
  
 export function useMDXComponents(components: MDXComponents): MDXComponents {

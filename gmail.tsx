@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 
 
-export const Gmail = ({username="batchfy"}:{username?: string}) => {
+export const Gmail = ({username="batchfy"}: {username?: string}) => {
     const letters = username.split('');
     return (
         <>
