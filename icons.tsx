@@ -23,7 +23,7 @@ export const Icon: React.FC<{platform: string, size?: number, className: string 
 }
 
 
-export const SocialIcons: React.FC<{ links: string[], iconSize?: number }> = ({ links, iconSize=20 }) => {
+export const SocialIcons: React.FC<{ links: string[], iconSize?: number, mx?: number }> = ({ links, iconSize=20, mx=2}) => {
     const icoCls = "inline text-default-600";
 
     const iconSizeScale: { [key: string]: number } = {
@@ -46,7 +46,7 @@ export const SocialIcons: React.FC<{ links: string[], iconSize?: number }> = ({ 
                 const platformName = getPlatformName(link);
                 const size = platformName && platformName in iconSizeScale ? iconSize * iconSizeScale[platformName] : iconSize;
                 return platformName ? (
-                    <Link key={index} isExternal href={link} style={{ marginLeft: "2px", marginRight: "2px" }}>
+                    <Link key={index} isExternal href={link} style={{ marginLeft: `${mx}px`, marginRight: `${mx}px` }}>
                         <Icon platform={platformName} size={size} className={icoCls} />
                     </Link>
                 ) : null;

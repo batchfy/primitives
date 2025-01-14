@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ socials, name, title="", domain,
                 >
                     <span className="text-primary text-sm">{name}</span>
                 </Link>
-                <SocialIcons links={socials} iconSize={iconSize} />
+                <SocialIcons links={socials} iconSize={iconSize} mx={2} />
             </div>
         </footer>
     )
