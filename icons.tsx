@@ -46,7 +46,7 @@ export const SocialIcons: React.FC<{ links: string[], iconSize?: number }> = ({ 
                 const platformName = getPlatformName(link);
                 const size = platformName && platformName in iconSizeScale ? iconSize * iconSizeScale[platformName] : iconSize;
                 return platformName ? (
-                    <Link key={index} isExternal href={link} style={{ marginLeft: "2px", marginRight: "2px" }}>
+                    <Link key={index} isExternal href={link} style={{ marginLeft: "4px", marginRight: "4px" }}>
                         <Icon platform={platformName} size={size} className={icoCls} />
                     </Link>
                 ) : null;

@@ -5,14 +5,13 @@ import { sendGTMEvent } from '@next/third-parties/google'
 
 
 export function Link(props: LinkProps): React.ReactElement {
+    const mergedStyle = { fontSize: "inherit!important", ...props.style }
     return <NextUILink
-        style={{ fontSize: "inherit!important" }}
-        onPress={() => {
-            sendGTMEvent({ event: 'linkClicked', href: props["href"] })
-            console.log(`Link to ${props["href"]} clicked.`)
-        }}
-        href={ props["href"] }
+        className={props.className}
+        style={mergedStyle}
+        onPress={() => { sendGTMEvent({ event: 'linkClicked', href: props.href }) }}
+        href={ props.href }
     >
-        { props["children"] }
+        { props.children }
     </NextUILink>
 }
