@@ -1,5 +1,5 @@
 "use client"
-import {Link as NextUILink, LinkProps} from "@nextui-org/link"
+import {Link as NextUILink, LinkProps} from "@heroui/link"
 import React from "react"
 import { sendGTMEvent } from '@next/third-parties/google'
 

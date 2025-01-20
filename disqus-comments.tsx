@@ -1,7 +1,7 @@
 "use client";
 
 import { DiscussionEmbed, CommentCount, Recommendations } from "disqus-react";
-import { Divider } from "@nextui-org/divider";
+import { Divider } from "@heroui/divider";
 
 const DisqusComments = ({ domain="batchfy.com", id, slug }: { domain?: string, id: string; slug: string }) => {
     const disqusShortname = "batchfy";

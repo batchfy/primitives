@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import { LinkProps } from "@nextui-org/link";
+import { LinkProps } from "@heroui/link";
 import { Link } from "./link";
 
  
