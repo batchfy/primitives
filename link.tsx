@@ -3,6 +3,7 @@ import NextLink, { LinkProps as NextLinkProps } from "next/link"
 import React from "react"
 import { sendGTMEvent } from '@next/third-parties/google'
 
+
 export type LinkProps = NextLinkProps & {
     className?: string,
     style?: React.CSSProperties,
@@ -29,3 +30,4 @@ React.ReactElement {
         </NextLink>
     )
 }
+
