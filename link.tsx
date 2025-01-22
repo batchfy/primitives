@@ -1,20 +1,31 @@
 "use client"
-import {Link as NextUILink, LinkProps} from "@heroui/link"
+import NextLink, { LinkProps as NextLinkProps } from "next/link"
 import React from "react"
 import { sendGTMEvent } from '@next/third-parties/google'
 
+type LinkProps = NextLinkProps & {
+    className?: string,
+    style?: React.CSSProperties,
+    children?: React.ReactNode,
+    isExternal?: boolean,
+}
 
-export function Link(props: LinkProps): React.ReactElement {
-    const mergedStyle = { fontSize: "inherit!important", ...props.style }
-    return <NextUILink
-        className={ props.className }
-        style={ mergedStyle }
-        onPress={() => {
-            sendGTMEvent({ event: 'linkClicked', href: props.href })
-            console.log(`Link clicked: ${props.href}.`)
-        }}
-        href={ props.href }
-    >
-        { props.children }
-    </NextUILink>
+
+export function Link({ className, style, children, isExternal, ...props }: LinkProps): 
+React.ReactElement {
+    const mergedStyle = { fontSize: "inherit!important", ...style }
+    return (
+        <NextLink
+            target={isExternal ? "_blank" : undefined}
+            className={className}
+            style={mergedStyle}
+            onClick={() => {
+                sendGTMEvent({ event: 'linkClicked', href: props.href })
+                console.log(`Link clicked: ${props.href}.`)
+            }}
+            {...props}
+        >
+            {children}
+        </NextLink>
+    )
 }
