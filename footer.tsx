@@ -4,12 +4,11 @@ import { Link } from "./link"
 interface FooterProps {
     socials: string[],
     name: string,
-    title?: string,
     domain: string
     iconSize?: number
 }
 
-export const Footer: React.FC<FooterProps> = ({ socials, name, title="", domain, iconSize=23 }) => {
+export const Footer: React.FC<FooterProps> = ({ socials, name, domain, iconSize=23 }) => {
     const year = new Date().getFullYear();
     return(
         <footer className="w-full flex flex-col items-center justify-center space-x-4">
@@ -19,7 +18,6 @@ export const Footer: React.FC<FooterProps> = ({ socials, name, title="", domain,
                     isExternal
                     className="text-current"
                     href={`https://${domain}`}
-                    title={title}
                 >
                     <span className="text-primary text-sm">{name}</span>
                 </Link>

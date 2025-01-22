@@ -3,7 +3,7 @@ import NextLink, { LinkProps as NextLinkProps } from "next/link"
 import React from "react"
 import { sendGTMEvent } from '@next/third-parties/google'
 
-type LinkProps = NextLinkProps & {
+export type LinkProps = NextLinkProps & {
     className?: string,
     style?: React.CSSProperties,
     children?: React.ReactNode,
