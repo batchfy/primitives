@@ -65,7 +65,7 @@ export function ThemeSwitch() {
     return (
         <>
             <button
-                className="group/toggle h-8 w-8 px-0"
+                className="group/toggle p-0 h-full w-full"
                 onClick={toggleTheme}
             >
                 { theme === "dark" || isSSR ? 
