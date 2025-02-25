@@ -6,6 +6,7 @@ import { Icon as IconifyIcon } from '@iconify/react'
 const platformIconMap: { [key: string]: string } = {
     "github.com": "mdi:github",
     "gitlab.com": "la:gitlab",
+    "instagram.com": "mdi:instagram",
     "linkedin.com": "mdi:linkedin",
     "orcid.org": "la:orcid",
     "reddit.com": "ph:reddit-logo-fill",
