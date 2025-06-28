@@ -1,19 +1,16 @@
 "use client"
 import NextLink, { LinkProps as NextLinkProps } from "next/link"
 import React from "react"
-import { sendGTMEvent } from '@next/third-parties/google'
-
+import { sendGTMEvent } from "@next/third-parties/google"
 
 export type LinkProps = NextLinkProps & {
-    className?: string,
-    style?: React.CSSProperties,
-    children?: React.ReactNode,
-    isExternal?: boolean,
+    className?: string
+    style?: React.CSSProperties
+    children?: React.ReactNode
+    isExternal?: boolean
 }
 
-
-export function Link({ className, style, children, isExternal, ...props }: LinkProps): 
-React.ReactElement {
+export function Link({ className, style, children, isExternal, ...props }: LinkProps): React.ReactElement {
     const mergedStyle = { fontSize: "inherit!important", ...style }
     return (
         <NextLink
@@ -21,7 +18,7 @@ React.ReactElement {
             className={className}
             style={mergedStyle}
             onClick={() => {
-                sendGTMEvent({ event: 'linkClicked', href: props.href })
+                sendGTMEvent({ event: "linkClicked", href: props.href })
                 console.log(`Link clicked: ${props.href}.`)
             }}
             {...props}
@@ -30,4 +27,3 @@ React.ReactElement {
         </NextLink>
     )
 }
-
