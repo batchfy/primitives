@@ -16,20 +16,27 @@ const platformIconMap: { [key: string]: string } = {
     "x.com": "prime:twitter",
 }
 
-export const Icon: React.FC<{ platform: string; size?: number; className: string }> = ({
-    platform,
-    className,
-    size = 20,
-}) => {
+export const Icon: React.FC<{
+    platform: string
+    size?: number
+    className: string
+}> = ({ platform, className, size = 20 }) => {
     const iconName = platformIconMap[platform]
-    return iconName ? <IconifyIcon icon={iconName} height={size} width={size} className={className} /> : null
+    return iconName ? (
+        <IconifyIcon
+            icon={iconName}
+            height={size}
+            width={size}
+            className={className}
+        />
+    ) : null
 }
 
-export const SocialIcons: React.FC<{ links: string[]; iconSize?: number; mx?: number }> = ({
-    links,
-    iconSize = 20,
-    mx = 2,
-}) => {
+export const SocialIcons: React.FC<{
+    links: string[]
+    iconSize?: number
+    mx?: number
+}> = ({ links, iconSize = 20, mx = 2 }) => {
     const icoCls = "inline text-default-600"
 
     const iconSizeScale: { [key: string]: number } = {
@@ -51,10 +58,24 @@ export const SocialIcons: React.FC<{ links: string[]; iconSize?: number; mx?: nu
             {links.map((link, index) => {
                 const platformName = getPlatformName(link)
                 const size =
-                    platformName && platformName in iconSizeScale ? iconSize * iconSizeScale[platformName] : iconSize
+                    platformName && platformName in iconSizeScale
+                        ? iconSize * iconSizeScale[platformName]
+                        : iconSize
                 return platformName ? (
-                    <Link key={index} isExternal href={link} style={{ marginLeft: `${mx}px`, marginRight: `${mx}px` }}>
-                        <Icon platform={platformName} size={size} className={icoCls} />
+                    <Link
+                        key={index}
+                        isExternal
+                        href={link}
+                        style={{
+                            marginLeft: `${mx}px`,
+                            marginRight: `${mx}px`,
+                        }}
+                    >
+                        <Icon
+                            platform={platformName}
+                            size={size}
+                            className={icoCls}
+                        />
                     </Link>
                 ) : null
             })}

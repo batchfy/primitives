@@ -9,7 +9,12 @@ type IconSvgProps = SVGProps<SVGSVGElement> & {
     size?: number
 }
 
-const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
+const MoonFilledIcon = ({
+    size = 24,
+    width,
+    height,
+    ...props
+}: IconSvgProps) => (
     <svg
         aria-hidden="true"
         focusable="false"
@@ -26,7 +31,12 @@ const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) =>
     </svg>
 )
 
-const SunFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
+const SunFilledIcon = ({
+    size = 24,
+    width,
+    height,
+    ...props
+}: IconSvgProps) => (
     <svg
         aria-hidden="true"
         focusable="false"
@@ -52,8 +62,15 @@ export function ThemeSwitch() {
 
     return (
         <>
-            <button className="group/toggle h-full w-full p-0" onClick={toggleTheme}>
-                {theme === "dark" || isSSR ? <SunFilledIcon size={24} /> : <MoonFilledIcon size={24} />}
+            <button
+                className="group/toggle h-full w-full p-0"
+                onClick={toggleTheme}
+            >
+                {theme === "dark" || isSSR ? (
+                    <SunFilledIcon size={24} />
+                ) : (
+                    <MoonFilledIcon size={24} />
+                )}
             </button>
         </>
     )

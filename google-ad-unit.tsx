@@ -51,7 +51,12 @@ const GoogleAd = ({ slot, client, layout, format = "auto" }: Props) => {
 export const GoogleAdUnit = ({ slot, client, format, layout }: Props) => {
     return (
         <Suspense>
-            <GoogleAd slot={slot} client={client} format={format} layout={layout} />
+            <GoogleAd
+                slot={slot}
+                client={client}
+                format={format}
+                layout={layout}
+            />
         </Suspense>
     )
 }

@@ -10,7 +10,13 @@ export type LinkProps = NextLinkProps & {
     isExternal?: boolean
 }
 
-export function Link({ className, style, children, isExternal, ...props }: LinkProps): React.ReactElement {
+export function Link({
+    className,
+    style,
+    children,
+    isExternal,
+    ...props
+}: LinkProps): React.ReactElement {
     const mergedStyle = { fontSize: "inherit!important", ...style }
     return (
         <NextLink
