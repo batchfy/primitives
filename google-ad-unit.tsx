@@ -1,5 +1,5 @@
 "use client"
-import React, { Fragment, useEffect } from "react"
+import React, { Fragment, useEffect, useRef } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { Suspense } from "react"
 import Script from "next/script"
@@ -20,7 +20,13 @@ declare global {
 const GoogleAd = ({ slot, client, layout, format = "auto" }: Props) => {
     const pathname = usePathname()
     const searchParams = useSearchParams()
+    const insRef = useRef<HTMLModElement | null>(null)
     useEffect(() => {
+        const ins = insRef.current
+        if (!ins) return
+        if (ins.getAttribute("data-adsbygoogle-status") === "done") return
+        if (ins.dataset.loaded === "true") return
+        ins.dataset.loaded = "true"
         try {
             ;(window.adsbygoogle = window.adsbygoogle || []).push({})
         } catch (err) {
