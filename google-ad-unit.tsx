@@ -2,7 +2,6 @@
 import React, { Fragment, useEffect, useRef } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { Suspense } from "react"
-import Script from "next/script"
 
 type Props = {
     slot: string
@@ -35,13 +34,8 @@ const GoogleAd = ({ slot, client, layout, format = "auto" }: Props) => {
     }, [pathname, searchParams])
     return (
         <Fragment>
-            <Script
-                async
-                src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`}
-                strategy="lazyOnload"
-                crossOrigin="anonymous"
-            />
             <ins
+                ref={insRef}
                 className="adsbygoogle"
                 style={{ display: "block" }}
                 data-ad-layout={layout}
