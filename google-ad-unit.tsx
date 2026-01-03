@@ -23,15 +23,15 @@ const GoogleAd = ({ slot, client, layout, format = "auto" }: Props) => {
     useEffect(() => {
         const ins = insRef.current
         if (!ins) return
-        if (ins.getAttribute("data-adsbygoogle-status") === "done") return
         if (ins.dataset.loaded === "true") return
         ins.dataset.loaded = "true"
+
         try {
             ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-        } catch (err) {
-            console.error(err)
+        } catch (e) {
+            console.error(e)
         }
-    }, [pathname, searchParams])
+    }, [])
     return (
         <Fragment>
             <ins
