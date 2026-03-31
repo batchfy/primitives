@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({
     return (
         <footer className="flex w-full flex-col items-center justify-center space-x-4 pb-4">
             <div className="text-sm">
-                &copy;<span className="text-default-600">Copyright</span>&nbsp;
+                &copy;<span className="text-muted-foreground">Copyright</span>&nbsp;
                 {yearFrom}~{year}&nbsp;
                 <Link
                     isExternal

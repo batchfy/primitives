@@ -37,7 +37,7 @@ export const SocialIcons: React.FC<{
     iconSize?: number
     mx?: number
 }> = ({ links, iconSize = 20, mx = 2 }) => {
-    const icoCls = "inline text-default-600"
+    const icoCls = "inline text-muted-foreground"
 
     const iconSizeScale: { [key: string]: number } = {
         "x.com": 0.72,
