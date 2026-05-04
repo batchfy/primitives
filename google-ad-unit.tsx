@@ -1,7 +1,6 @@
 "use client"
-import React, { Fragment, useEffect, useRef } from "react"
+import React, { Fragment, useEffect, useRef, Suspense } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
-import { Suspense } from "react"
 
 type Props = {
     slot: string

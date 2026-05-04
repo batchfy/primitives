@@ -1,8 +1,6 @@
 "use client"
 import * as React from "react"
 import { useTheme } from "next-themes"
-import { useIsSSR } from "@react-aria/ssr"
-
 import { SVGProps } from "react"
 
 type IconSvgProps = SVGProps<SVGSVGElement> & {
@@ -55,23 +53,26 @@ const SunFilledIcon = ({
 
 export function ThemeSwitch() {
     const { theme, setTheme } = useTheme()
-    const isSSR = useIsSSR()
+    const [mounted, setMounted] = React.useState(false)
+
+    React.useEffect(() => setMounted(true), [])
+
     function toggleTheme() {
         setTheme(theme === "dark" ? "light" : "dark")
     }
 
     return (
-        <>
-            <button
-                className="group/toggle h-full w-full p-0"
-                onClick={toggleTheme}
-            >
-                {theme === "dark" || isSSR ? (
-                    <SunFilledIcon size={24} />
-                ) : (
-                    <MoonFilledIcon size={24} />
-                )}
-            </button>
-        </>
+        <button
+            className="group/toggle h-full w-full p-0"
+            onClick={toggleTheme}
+            suppressHydrationWarning
+        >
+            {/* Render sun icon until mounted to avoid hydration mismatch */}
+            {mounted && theme !== "dark" ? (
+                <MoonFilledIcon size={24} />
+            ) : (
+                <SunFilledIcon size={24} />
+            )}
+        </button>
     )
 }

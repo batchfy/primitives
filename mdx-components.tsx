@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types"
+
 import { Link, LinkProps } from "./link"
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

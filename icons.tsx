@@ -1,6 +1,7 @@
 import * as React from "react"
-import { Link } from "./link"
 import { Icon as IconifyIcon } from "@iconify/react"
+
+import { Link } from "./link"
 
 const platformIconMap: { [key: string]: string } = {
     "github.com": "mdi:github",
