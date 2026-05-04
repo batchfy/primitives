@@ -1,6 +1,5 @@
 "use client"
 import React, { Fragment, useEffect, useRef, Suspense } from "react"
-import { usePathname, useSearchParams } from "next/navigation"
 
 type Props = {
     slot: string
@@ -16,8 +15,6 @@ declare global {
 }
 
 const GoogleAd = ({ slot, client, layout, format = "auto" }: Props) => {
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
     const insRef = useRef<HTMLModElement | null>(null)
     useEffect(() => {
         const ins = insRef.current

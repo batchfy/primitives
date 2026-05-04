@@ -1,0 +1,96 @@
+{
+  "name": "primitives",
+  "version": "1.0.0",
+  "description": "Frontend primitive components for React",
+  "homepage": "https://github.com/batchfy/primitives#readme",
+  "bugs": {
+    "url": "https://github.com/batchfy/primitives/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batchfy/primitives.git"
+  },
+  "license": "ISC",
+  "author": "Batchfy LLC",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./link": {
+      "import": "./dist/link.js",
+      "types": "./dist/link.d.ts"
+    },
+    "./footer": {
+      "import": "./dist/footer.js",
+      "types": "./dist/footer.d.ts"
+    },
+    "./gmail": {
+      "import": "./dist/gmail.js",
+      "types": "./dist/gmail.d.ts"
+    },
+    "./google-ad-unit": {
+      "import": "./dist/google-ad-unit.js",
+      "types": "./dist/google-ad-unit.d.ts"
+    },
+    "./icons": {
+      "import": "./dist/icons.js",
+      "types": "./dist/icons.d.ts"
+    },
+    "./mdx-components": {
+      "import": "./dist/mdx-components.js",
+      "types": "./dist/mdx-components.d.ts"
+    },
+    "./theme-providers": {
+      "import": "./dist/theme-providers.js",
+      "types": "./dist/theme-providers.d.ts"
+    },
+    "./theme-switch": {
+      "import": "./dist/theme-switch.js",
+      "types": "./dist/theme-switch.d.ts"
+    },
+    "./tv": {
+      "import": "./dist/tv.js",
+      "types": "./dist/tv.d.ts"
+    },
+    "./disqus-comments": {
+      "import": "./dist/disqus-comments.js",
+      "types": "./dist/disqus-comments.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "dependencies": {
+    "@iconify/react": "^6.0.2",
+    "disqus-react": "^1.1.7",
+    "next-themes": "^0.4.6",
+    "tailwind-variants": "3.2.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-plugin-react": "^7",
+    "eslint-plugin-react-hooks": "^5",
+    "prettier": "^3",
+    "typescript": "^5",
+    "typescript-eslint": "^8"
+  }
+}

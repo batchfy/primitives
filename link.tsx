@@ -1,35 +1,21 @@
 "use client"
-import NextLink, { LinkProps as NextLinkProps } from "next/link"
 import React from "react"
-import { sendGTMEvent } from "@next/third-parties/google"
 
-export type LinkProps = NextLinkProps & {
-    className?: string
-    style?: React.CSSProperties
-    children?: React.ReactNode
+export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     isExternal?: boolean
 }
 
-export function Link({
-    className,
-    style,
-    children,
-    isExternal,
-    ...props
-}: LinkProps): React.ReactElement {
-    const mergedStyle = { fontSize: "inherit!important", ...style }
+export function Link({ className, style, children, isExternal, ...props }: LinkProps): React.ReactElement {
+    const mergedStyle = { fontSize: "inherit", ...style }
     return (
-        <NextLink
+        <a
             target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
             className={className}
             style={mergedStyle}
-            onClick={() => {
-                sendGTMEvent({ event: "linkClicked", href: props.href })
-                console.log(`Link clicked: ${props.href}.`)
-            }}
             {...props}
         >
             {children}
-        </NextLink>
+        </a>
     )
 }
